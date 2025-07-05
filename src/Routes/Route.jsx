@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import MainLayout from "../LayOuts/MainLayout";
-import Home from "../Components/Home";
+import Navbar from "../Components/Navbar";
 import ErrorPage from "../Pages/ErrorPage";
-
+import MainLayout from "../Layouts/MainLayout";
+import Home from "../Pages/Home";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -11,6 +11,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: () => fetch("http://localhost:3000/activeGardeners"),
         element: <Home></Home>,
       },
     ],

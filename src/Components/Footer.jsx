@@ -1,11 +1,88 @@
-import React from 'react';
+import React from "react";
+import { FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaSquareXTwitter, FaInstagram } from "react-icons/fa6";
 
 const Footer = () => {
-    return (
-        <div>
-            Footer
+  return (
+    <footer className="bg-green-50 text-green-900 font-lora pt-10 border-t border-green-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10">
+          {/* Contact Info */}
+          <div>
+            <h2 className="text-xl font-semibold font-merriweather mb-4">
+              Contact Us
+            </h2>
+            <p>Email: tahmedshad127@gmail.com</p>
+            <p>Phone: +8801751038180</p>
+            <p>Location: Dhaka,Bangladesh</p>
+          </div>
+
+          {/* Terms Section  */}
+          <div>
+            <h2 className="text-xl font-semibold font-merriweather mb-4">
+              Terms
+            </h2>
+            <p className="text-sm mb-2">By using this site, you agree to:</p>
+            <ul className="list-disc list-inside text-sm space-y-1">
+              <li>Respect other gardeners and their content.</li>
+              <li>Do not share offensive or harmful content.</li>
+              <li>You're responsible for what you post.</li>
+              <li>
+                We may remove content or suspend accounts that violate these
+                terms.
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Links */}
+          <div>
+            <h2 className="text-xl font-semibold font-merriweather mb-4">
+              Connect With Us
+            </h2>
+            <div className="flex gap-4 text-2xl text-green-700">
+              <a
+                href="https://www.facebook.com/tahmedshad/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook size={24} className="text-blue-500" />
+              </a>
+              <a
+                href="https://twitter.com/tanvir70469110"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaSquareXTwitter size={24} className="text-black" />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@ProgrammingHeroCommunity"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaYoutube size={24} color="red" />
+              </a>
+              <a
+                href="https://www.instagram.com/shadtanvir127/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram size={24} color="red" />
+              </a>
+            </div>
+          </div>
         </div>
-    );
+
+        {/* Divider + Bottom Branding */}
+        <div className="border-t border-green-200 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-green-600 pb-6">
+          <p>© 2025 Green Circle. All rights reserved.</p>
+          <p className="flex items-center gap-1 mt-2 md:mt-0">
+            Grow. Share. Connect.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
