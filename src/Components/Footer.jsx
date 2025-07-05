@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaYoutube } from "react-icons/fa";
 import { FaSquareXTwitter, FaInstagram } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -17,19 +18,26 @@ const Footer = () => {
             <p>Location: Dhaka,Bangladesh</p>
           </div>
 
-          {/* Terms Section  */}
+          {/* Terms & Policies */}
           <div>
             <h2 className="text-xl font-semibold font-merriweather mb-4">
-              Terms
+              Terms and policies
             </h2>
-            <p className="text-sm mb-2">By using this site, you agree to:</p>
-            <ul className="list-disc list-inside text-sm space-y-1">
-              <li>Respect other gardeners and their content.</li>
-              <li>Do not share offensive or harmful content.</li>
-              <li>You're responsible for what you post.</li>
+            <ul className="space-y-2">
               <li>
-                We may remove content or suspend accounts that violate these
-                terms.
+                <Link to="/terms" className="hover:underline">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="hover:underline">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/cookies" className="hover:underline">
+                  Cookie Policy
+                </Link>
               </li>
             </ul>
           </div>

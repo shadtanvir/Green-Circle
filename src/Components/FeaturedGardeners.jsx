@@ -13,7 +13,7 @@ const FeaturedGardeners = ({ activeGardeners }) => {
     }),
   };
   return (
-    <section className="py-12 bg-base-100">
+    <section className="py-12 max-w-7xl mx-auto bg-base-100">
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ const FeaturedGardeners = ({ activeGardeners }) => {
                 {gardener.bio}
               </p>
               <p className="text-sm flex items-center gap-1 text-gray-400 mt-1 italic">
-                <FaLocationDot  color="blue"/> {gardener.location}
+                <FaLocationDot color="blue" /> {gardener.location}
               </p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {gardener.specialties?.map((tag, i) => (
