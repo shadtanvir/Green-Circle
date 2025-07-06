@@ -14,13 +14,51 @@ const Register = () => {
   const handleGoogleRegister = () => {
     googleSignIn()
       .then((result) => {
-        Swal.fire({
-          icon: "success",
-          title: "Your account is created.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate("/");
+        const userProfile = {
+          email: result.user.email,
+          name: result.user.displayName,
+          photoURL: result.user.photoURL,
+          creationTime: result.user?.metadata?.creationTime,
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
+        };
+        // save profile info in the db
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userProfile),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire({
+                icon: "success",
+                title: "Your account is created.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
+
+        navigate(location.state?.from || "/");
+        const user = result.user;
+        updateUser({
+          displayName: result.user.displayName,
+          photoURL: result.user.photoURL,
+        })
+          .then(() => {
+            // setUser(user);
+            setUser({
+              ...user,
+              displayName: result.user.displayName,
+              photoURL: result.user.photoURL,
+            });
+          })
+          .catch((error) => {
+            // An error occurred
+            setUser(user);
+          });
         // console.log(result);
       })
       .catch((error) => {
@@ -166,7 +204,10 @@ const Register = () => {
             )}
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
-            <button type="submit" className="btn bg-green-800 text-white font-merriWeather mt-4">
+            <button
+              type="submit"
+              className="btn bg-green-800 text-white font-merriWeather mt-4"
+            >
               Register
             </button>
             <p className="font-semibold text-center pt-5">

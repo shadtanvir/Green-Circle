@@ -14,18 +14,55 @@ const Login = () => {
   const location = useLocation();
   const emailRef = useRef();
   // console.log(location);
-  const { signIn, googleSignIn } = use(AuthContext);
+  const { signIn, googleSignIn, updateUser, setUser } = use(AuthContext);
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
-        console.log(result.user.photoURL);
-        Swal.fire({
-          icon: "success",
-          title: "Successfully logged in!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        const userProfile = {
+          email: result.user.email,
+          name: result.user.displayName,
+          photoURL: result.user.photoURL,
+          creationTime: result.user?.metadata?.creationTime,
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
+        };
+        // save profile info in the db
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userProfile),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire({
+                icon: "success",
+                title: "Successfully logged in!",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
+
         navigate(location.state?.from || "/");
+        const user = result.user;
+        updateUser({
+          displayName: result.user.displayName,
+          photoURL: result.user.photoURL,
+        })
+          .then(() => {
+            // setUser(user);
+            setUser({
+              ...user,
+              displayName: result.user.displayName,
+              photoURL: result.user.photoURL,
+            });
+          })
+          .catch((error) => {
+            // An error occurred
+            setUser(user);
+          });
         // console.log(result);
       })
       .catch((error) => {
