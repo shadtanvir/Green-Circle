@@ -5,6 +5,9 @@ import Home from "../Pages/Home";
 import Cookies from "../Components/Cookies";
 import Terms from "../Components/Terms";
 import Privacy from "../Components/Privacy";
+import AuthLayout from "../Layouts/AuthLayout";
+import Register from "../Pages/Register";
+import Login from "../Pages/Login";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +30,21 @@ const router = createBrowserRouter([
       {
         path: "/terms",
         Component: Terms,
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <AuthLayout></AuthLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/auth/register",
+        element: <Register></Register>,
       },
     ],
   },

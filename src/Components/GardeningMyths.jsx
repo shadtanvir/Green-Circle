@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { FaLeaf, FaSun, FaSeedling } from "react-icons/fa";
+import { GiPlantWatering } from "react-icons/gi";
+import { PiPottedPlant } from "react-icons/pi";
 
 const GardeningMyths = () => {
   const myths = [
@@ -9,12 +11,12 @@ const GardeningMyths = () => {
       fact: "Many herbs and houseplants actually thrive in partial or indirect light.",
     },
     {
-      icon: <FaLeaf className="text-green-500 text-4xl mb-3" />,
+      icon: <GiPlantWatering className="text-green-500 text-4xl mb-3" />,
       title: "Myth: Water Every Day",
       fact: "Overwatering is the #1 killer of houseplants. Check soil before watering!",
     },
     {
-      icon: <FaSeedling className="text-lime-600 text-4xl mb-3" />,
+      icon: <PiPottedPlant className="text-lime-600 text-4xl mb-3" />,
       title: "Myth: Bigger Pots Mean Bigger Plants",
       fact: "Too big a pot can retain too much water and rot the roots of small plants.",
     },
@@ -32,7 +34,7 @@ const GardeningMyths = () => {
           Gardening Myths Busted
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-8">
           {myths.map((myth, i) => (
             <motion.div
               key={i}

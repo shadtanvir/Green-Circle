@@ -64,13 +64,6 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://www.youtube.com/@ProgrammingHeroCommunity"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaYoutube size={24} color="red" />
-              </a>
-              <a
                 href="https://www.instagram.com/shadtanvir127/"
                 target="_blank"
                 rel="noopener noreferrer"
