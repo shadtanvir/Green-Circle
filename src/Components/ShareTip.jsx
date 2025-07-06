@@ -17,7 +17,7 @@ const ShareTip = () => {
   const onSubmit = (data) => {
     const tipData = {
       ...data,
-      email: user.email,
+      userEmail: user.email,
       userName: user.displayName,
       date: new Date(),
     };
@@ -50,7 +50,7 @@ const ShareTip = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto my-20 p-6 bg-base-100 shadow-lg rounded-md">
+    <div className="max-w-7xl mx-auto my-20 p-6 bg-base-100 shadow-lg rounded-md">
       <h2 className="text-2xl font-merriweather font-bold text-success mb-6">
         Share a Garden Tip
       </h2>

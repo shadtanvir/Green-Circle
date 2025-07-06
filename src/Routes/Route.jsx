@@ -10,6 +10,7 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import ShareTip from "../Components/ShareTip";
 import PrivateRoute from "../Provider/PrivateRoute";
+import BrowseTips from "../Pages/BrowseTips";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             <ShareTip></ShareTip>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/tips",
+        element: <BrowseTips></BrowseTips>,
       },
     ],
   },
