@@ -6,72 +6,65 @@ import Swal from "sweetalert2";
 const Register = () => {
   const { createUser, setUser, updateUser, googleSignIn } =
     useContext(AuthContext);
-  const [error, setError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(location);
   const handleGoogleRegister = () => {
     googleSignIn()
       .then((result) => {
+        const user = result.user;
         const userProfile = {
-          email: result.user.email,
-          name: result.user.displayName,
-          photoURL: result.user.photoURL,
-          creationTime: result.user?.metadata?.creationTime,
-          lastSignInTime: result.user?.metadata?.lastSignInTime,
+          email: user.email,
+          name: user.displayName,
+          photoURL: user.photoURL,
+          creationTime: user?.metadata?.creationTime,
+          lastSignInTime: user?.metadata?.lastSignInTime,
         };
-        // save profile info in the db
-        fetch("http://localhost:3000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(userProfile),
-        })
+
+        // check if user already exists in MongoDB
+        fetch(`http://localhost:3000/users?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => {
-            if (data.insertedId) {
+            if (data.exists) {
               Swal.fire({
-                icon: "success",
-                title: "Your account is created.",
-                showConfirmButton: false,
-                timer: 1500,
+                icon: "error",
+                title: "Oops...",
+                text: "You have already signed up with Google. Please log in.",
               });
+            } else {
+              // save new user to MongoDB
+              fetch("http://localhost:3000/users", {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(userProfile),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data.insertedId) {
+                    Swal.fire({
+                      icon: "success",
+                      title: "Your account is created.",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    });
+                    setUser(user);
+                    navigate(location.state?.from || "/");
+                  }
+                });
             }
           });
-
-        navigate(location.state?.from || "/");
-        const user = result.user;
-        updateUser({
-          displayName: result.user.displayName,
-          photoURL: result.user.photoURL,
-        })
-          .then(() => {
-            // setUser(user);
-            setUser({
-              ...user,
-              displayName: result.user.displayName,
-              photoURL: result.user.photoURL,
-            });
-          })
-          .catch((error) => {
-            // An error occurred
-            setUser(user);
-          });
-        // console.log(result);
       })
       .catch((error) => {
-        const errorCode = error.code;
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: `${errorCode}`,
-          //   footer: '<a href="#">Why do I have this issue?</a>',
+          text: `${error.message}`,
         });
-        // console.log(error);
       });
   };
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -90,9 +83,6 @@ const Register = () => {
         title: "Oops...",
         text: "The password should be at least 8 characters and include 1 uppercase, 1 lowercase, and a special character.",
       });
-      //   setPasswordError(
-      //     "The password should be at least 8 characters and include 1 uppercase, 1 lowercase, and a special character."
-      //   );
 
       return;
     }
@@ -199,10 +189,6 @@ const Register = () => {
               placeholder="Password"
               required
             />
-            {passwordError && (
-              <p className="text-red-500 text-sm">{passwordError}</p>
-            )}
-            {error && <p className="text-red-500 text-sm">{error}</p>}
 
             <button
               type="submit"

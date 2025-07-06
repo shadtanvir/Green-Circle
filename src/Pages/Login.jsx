@@ -18,64 +18,41 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
-        const userProfile = {
-          email: result.user.email,
-          name: result.user.displayName,
-          photoURL: result.user.photoURL,
-          creationTime: result.user?.metadata?.creationTime,
-          lastSignInTime: result.user?.metadata?.lastSignInTime,
-        };
-        // save profile info in the db
-        fetch("http://localhost:3000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(userProfile),
-        })
+        const user = result.user;
+
+        fetch(`http://localhost:3000/users?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => {
-            if (data.insertedId) {
+            if (!data.exists) {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please sign up with Google first.",
+              });
+            } else {
+              //  login successful
               Swal.fire({
                 icon: "success",
                 title: "Successfully logged in!",
                 showConfirmButton: false,
                 timer: 1500,
               });
+
+              // set user in AuthContext
+              setUser(user);
+              navigate(location.state?.from || "/");
             }
           });
-
-        navigate(location.state?.from || "/");
-        const user = result.user;
-        updateUser({
-          displayName: result.user.displayName,
-          photoURL: result.user.photoURL,
-        })
-          .then(() => {
-            // setUser(user);
-            setUser({
-              ...user,
-              displayName: result.user.displayName,
-              photoURL: result.user.photoURL,
-            });
-          })
-          .catch((error) => {
-            // An error occurred
-            setUser(user);
-          });
-        // console.log(result);
       })
       .catch((error) => {
-        const errorCode = error.code;
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: `${errorCode}`,
-          //   footer: '<a href="#">Why do I have this issue?</a>',
+          text: error.code,
         });
-        // console.log(error);
       });
   };
+
   const handleLogin = (e) => {
     setError("");
     e.preventDefault();
