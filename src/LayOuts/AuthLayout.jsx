@@ -11,11 +11,10 @@ const AuthLayout = () => {
       <Navbar></Navbar>
 
       <div className="bg-gray-100">
-        <div className=" min-h-[calc(100vh-386px)]">
+        <div className=" min-h-[calc(100vh-104px)]">
           {state === "loading" ? <Loading /> : <Outlet></Outlet>}
         </div>
       </div>
-      <Footer></Footer>
     </>
   );
 };

@@ -1,63 +1,107 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useContext, useState } from "react";
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/green-circle-logo.png";
 
 const Navbar = () => {
-  //   const { user, logOut } = useContext(AuthContext);
-  //   const [showMenu, setShowMenu] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  //   const handleLogout = async () => {
-  //     try {
-  //       await logOut();
-  //     } catch (error) {
-  //       console.error("Logout failed", error);
-  //     }
-  //   };
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        // alert("You are logged out!");
+      })
+      .catch((error) => {
+        // alert(error);
+      });
+  };
 
   const navLinks = (
     <>
-      <li>
+      <li className="flex items-center">
         <NavLink
           to="/"
           className={({ isActive }) =>
             isActive
-              ? " rounded-none font-bold text-green-400"
-              : " hover:text-green-400  "
+              ? "rounded-none font-bold text-green-400"
+              : "hover:text-green-400"
           }
         >
           Home
         </NavLink>
       </li>
-      <li>
+      <li className="flex items-center">
         <NavLink
           to="/explore"
           className={({ isActive }) =>
             isActive
-              ? " rounded-none  font-bold text-green-400"
-              : " hover:text-green-400  "
+              ? "rounded-none font-bold text-green-400"
+              : "hover:text-green-400"
           }
         >
           Explore Gardeners
         </NavLink>
       </li>
-      <li>
+      <li className="flex items-center">
         <NavLink
           to="/tips"
           className={({ isActive }) =>
             isActive
-              ? " rounded-none  font-bold text-green-400"
-              : " hover:text-green-400 "
+              ? "rounded-none font-bold text-green-400"
+              : "hover:text-green-400"
           }
         >
           Browse Tips
         </NavLink>
       </li>
-      {/* {user && (
+
+      {user && (
         <>
-          <li><NavLink to="/share-tip" className="hover:text-green-500">Share a Garden Tip</NavLink></li>
-          <li><NavLink to="/my-tips" className="hover:text-green-500">My Tips</NavLink></li>
+          <li className="flex items-center">
+            <NavLink to="/share-tip" className="hover:text-green-500">
+              Share a Garden Tip
+            </NavLink>
+          </li>
+          <li className="flex items-center">
+            <NavLink to="/my-tips" className="hover:text-green-500">
+              My Tips
+            </NavLink>
+          </li>
         </>
-      )} */}
+      )}
+
+      {/* Final item: Avatar or Login */}
+      <li className="ml-5 flex items-center">
+        {!user ? (
+          <NavLink
+            to="/auth/register"
+            className="btn btn-sm btn-success font-merriWeather text-white"
+          >
+            SignUp
+          </NavLink>
+        ) : (
+          <div className="relative flex items-center">
+            <img
+              src={user.photoURL}
+              alt="User"
+              className="w-9 h-9 rounded-full cursor-pointer border-2 border-success"
+              title={user.displayName}
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            />
+            {dropdownOpen && (
+              <button
+                onClick={handleLogout}
+                className="w-full font-merriWeather flex items-center ml-4 text-left px-3 py-2 rounded bg-amber-50 text-red-700"
+              >
+                Logout
+              </button>
+            )}
+          </div>
+        )}
+      </li>
     </>
   );
 
@@ -92,7 +136,7 @@ const Navbar = () => {
       <div className="flex-1  ">
         <div className="flex items-center">
           <Link to="/">
-            <img src={logo} alt="" className="md:w-22 md:h-22 w-12 h-12" />
+            <img src={logo} alt="logo" className="md:w-22 md:h-22 w-12 h-12" />
           </Link>
           <Link to="/" className="text-xl font-bold ">
             Green Circle
@@ -101,41 +145,9 @@ const Navbar = () => {
       </div>
 
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1 hidden md:flex">{navLinks}</ul>
-
-        {/* Auth Section */}
-        {/* <div className="ml-4">
-          {!user ? (
-            <Link to="/login" className="btn btn-sm btn-outline">
-              <FaSignInAlt className="mr-1" />
-              Login/SignUp
-            </Link>
-          ) : (
-            <div className="relative">
-              <div
-                className="avatar cursor-pointer"
-                onClick={() => setShowMenu(!showMenu)}
-              >
-                <div className="w-10 rounded-full ring ring-green-400 ring-offset-base-100 ring-offset-2">
-                  <img src={user.photoURL || "/default-user.png"} alt="User" />
-                </div>
-              </div>
-              {showMenu && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-10">
-                  <div className="px-4 py-2 text-sm text-gray-700">
-                    {user.displayName || "User"}
-                  </div>
-                  <button
-                    onClick={handleLogout}
-                    className="btn btn-sm btn-error w-full flex items-center justify-center gap-2"
-                  >
-                    <FaSignOutAlt /> Logout
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-        </div> */}
+        <ul className="menu menu-horizontal md:items-center px-1 font-merriWeather  hidden md:flex">
+          {navLinks}
+        </ul>
       </div>
     </div>
   );
