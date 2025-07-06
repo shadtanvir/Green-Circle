@@ -8,6 +8,8 @@ import Privacy from "../Components/Privacy";
 import AuthLayout from "../Layouts/AuthLayout";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
+import ShareTip from "../Components/ShareTip";
+import PrivateRoute from "../Provider/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/terms",
         Component: Terms,
+      },
+      {
+        path: "/share-tip",
+        element: (
+          <PrivateRoute>
+            <ShareTip></ShareTip>
+          </PrivateRoute>
+        ),
       },
     ],
   },
