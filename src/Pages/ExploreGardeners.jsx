@@ -1,8 +1,9 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaLocationDot } from "react-icons/fa6";
 
-const FeaturedGardeners = ({ activeGardeners }) => {
+const ExploreGardeners = () => {
+  const [gardeners, setGardeners] = useState([]);
+
   // Animation variants
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -12,6 +13,13 @@ const FeaturedGardeners = ({ activeGardeners }) => {
       transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
     }),
   };
+
+  useEffect(() => {
+    fetch("http://localhost:3000/gardeners")
+      .then((res) => res.json())
+      .then((data) => setGardeners(data));
+  }, []);
+
   return (
     <section className="py-12 max-w-7xl mx-auto bg-base-100">
       <motion.div
@@ -22,15 +30,15 @@ const FeaturedGardeners = ({ activeGardeners }) => {
         className="text-center mb-10"
       >
         <h2 className="text-2xl md:text-4xl font-merriweather font-bold text-success">
-          Featured Gardeners
+          Explore Gardeners of Our Community
         </h2>
         <p className="text-[#3F2200] font-lora mt-2">
-          Meet the green heroes of our community!
+          Welcome to our green circle!
         </p>
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-8">
-        {activeGardeners.map((gardener, index) => (
+        {gardeners.map((gardener, index) => (
           <motion.div
             key={index}
             custom={index}
@@ -49,15 +57,32 @@ const FeaturedGardeners = ({ activeGardeners }) => {
               <h3 className="text-xl font-semibold font-merriweather text-success">
                 {gardener.name}
               </h3>
-              <p className="text-sm text-gray-600 font-lora mt-1">
-                {gardener.experience}
+              {gardener.totalSharedTips ? (
+                <p className="text-sm flex items-center gap-1 font-merriWeather italic text-gray-600 mt-1 ">
+                  Shared tips: {gardener.totalSharedTips}
+                </p>
+              ) : (
+                <p className="text-sm flex items-center gap-1 text-gray-600 mt-1 italic font-merriWeather">
+                  Shared tips: 0
+                </p>
+              )}
+              <p className="text-sm text-gray-600 font-merriWeather mt-1">
+                {gardener.experience
+                  ? gardener.experience
+                  : "Experience not provided"}
               </p>
               <p className="text-sm flex items-center gap-1 text-gray-400 mt-1 italic">
-                {gardener.age} years
+                {gardener.age
+                  ? `${gardener.age} years old`
+                  : "Age not provided"}{" "}
               </p>
+
               <div className="mt-2 flex flex-wrap gap-2">
                 <span className="bg-green-100 text-green-700 text-xs font-medium px-2 py-1 rounded-full">
-                  #{gardener.gender}
+                  #
+                  {gardener.gender
+                    ? `${gardener.gender}`
+                    : "Gender not provided"}{" "}
                 </span>
                 <span className="bg-green-100 text-green-700 text-xs font-medium px-2 py-1 rounded-full">
                   #{gardener.status}
@@ -71,4 +96,4 @@ const FeaturedGardeners = ({ activeGardeners }) => {
   );
 };
 
-export default FeaturedGardeners;
+export default ExploreGardeners;

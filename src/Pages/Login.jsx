@@ -20,7 +20,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        fetch(`http://localhost:3000/users?email=${user.email}`)
+        fetch(`http://localhost:3000/gardeners?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => {
             if (!data.exists) {
@@ -67,7 +67,7 @@ const Login = () => {
           lastSignInTime: result.user?.metadata?.lastSignInTime,
         };
         // update last sign in to the database
-        fetch("http://localhost:3000/users", {
+        fetch("http://localhost:3000/gardeners", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

@@ -14,6 +14,7 @@ import BrowseTips from "../Pages/BrowseTips";
 import TipDetails from "../Pages/TipDetails";
 import MyTips from "../Pages/MyTips";
 import UpdateTip from "../Pages/UpdateTip";
+import ExploreGardeners from "../Pages/ExploreGardeners";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,8 +23,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/activeGardeners"),
+        loader: () => fetch("http://localhost:3000/active-gardeners"),
         element: <Home></Home>,
+      },
+      {
+        path: "/explore-gardeners",
+        Component: ExploreGardeners,
       },
       {
         path: "/cookies",

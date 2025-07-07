@@ -90,7 +90,7 @@ const MyTips = () => {
                     </span>
                   )}
                 </td>
-                <td className="py-2 px-4 flex gap-2">
+                <td className=" flex gap-2 py-2 px-4">
                   <Link to={`/update-tip/${tip._id}`}>
                     <button className="btn btn-sm btn-warning flex items-center gap-1">
                       <FaEdit /> Edit

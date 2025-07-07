@@ -35,7 +35,7 @@ const Navbar = () => {
       </li>
       <li className="flex items-center">
         <NavLink
-          to="/explore"
+          to="/explore-gardeners"
           className={({ isActive }) =>
             isActive
               ? "rounded-none font-bold text-green-400"

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import Loading from "../Components/Loading";
 
 const UpdateTip = () => {
   const { id } = useParams();
@@ -44,10 +45,15 @@ const UpdateTip = () => {
       });
   };
 
-  if (!tip) return <div className="text-center mt-10">Loading...</div>;
+  if (!tip)
+    return (
+      <div className="text-center mt-10">
+        <Loading></Loading>
+      </div>
+    );
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+    <div className="max-w-2xl mx-auto p-6 my-15 bg-white shadow-md rounded-lg mt-10">
       <h2 className="text-2xl font-bold text-green-700 mb-6 text-center font-merri">
         Update Garden Tip
       </h2>
@@ -125,7 +131,7 @@ const UpdateTip = () => {
               </option>
               <option value="Composting">Composting</option>
               <option value="Plant Care">Plant Care</option>
-              <option value="Vertical Gardening">Vertical Gardening</option>
+              <option value="Vertical Gardening">Vertical Gardening</option>bd
               <option value="Seasonal Tips">Seasonal Tips</option>
               <option value="General">General</option>
               <option value="Indoor Gardening">Indoor Gardening</option>

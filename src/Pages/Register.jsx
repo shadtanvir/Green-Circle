@@ -13,16 +13,22 @@ const Register = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
+        console.log(user);
         const userProfile = {
           email: user.email,
           name: user.displayName,
           photoURL: user.photoURL,
+          age: null,
+          gender: null,
+          status: "Active", // default status for Google sign-in
+          experience: "",
           creationTime: user?.metadata?.creationTime,
           lastSignInTime: user?.metadata?.lastSignInTime,
+          totalSharedTips: 0,
         };
 
         // check if user already exists in MongoDB
-        fetch(`http://localhost:3000/users?email=${user.email}`)
+        fetch(`http://localhost:3000/gardeners?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => {
             if (data.exists) {
@@ -32,8 +38,8 @@ const Register = () => {
                 text: "You have already signed up with Google. Please log in.",
               });
             } else {
-              // save new user to MongoDB
-              fetch("http://localhost:3000/users", {
+              // save new gardener to MongoDB
+              fetch("http://localhost:3000/gardeners", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",
@@ -95,10 +101,11 @@ const Register = () => {
           ...restFormData,
           creationTime: result.user?.metadata?.creationTime,
           lastSignInTime: result.user?.metadata?.lastSignInTime,
+          totalSharedTips: 0,
         };
 
         // save profile info in the db
-        fetch("http://localhost:3000/users", {
+        fetch("http://localhost:3000/gardeners", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -177,6 +184,44 @@ const Register = () => {
               type="text"
               className="input"
               placeholder="Photo URL"
+              required
+            />
+
+            {/* Age */}
+            <label className="label">Age</label>
+            <input
+              name="age"
+              type="number"
+              min="10"
+              className="input"
+              required
+            />
+
+            {/* Gender */}
+            <label className="label">Gender</label>
+            <select name="gender" className="select select-bordered" required>
+              <option value="" disabled selected>
+                Select gender
+              </option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+
+            {/* Status */}
+            <label className="label">Status</label>
+            <select name="status" className="select select-bordered" required>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+
+            {/* Experience */}
+            <label className="label">Experience</label>
+            <input
+              name="experience"
+              type="text"
+              className="input"
+              placeholder="E.g. 3 years in rooftop gardening"
               required
             />
 

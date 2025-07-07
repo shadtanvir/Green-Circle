@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ErrorPage from "./ErrorPage";
 import { useParams } from "react-router";
+import Loading from "../Components/Loading";
 
 const TipDetails = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const TipDetails = () => {
   if (!tip)
     return (
       <div className="text-center py-10">
-        <ErrorPage></ErrorPage>
+        <Loading></Loading>
       </div>
     );
 
