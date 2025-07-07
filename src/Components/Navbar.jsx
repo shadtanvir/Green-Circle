@@ -61,12 +61,26 @@ const Navbar = () => {
       {user && (
         <>
           <li className="flex items-center">
-            <NavLink to="/share-tip" className="hover:text-green-500">
+            <NavLink
+              to="/share-tip"
+              className={({ isActive }) =>
+                isActive
+                  ? "rounded-none font-bold text-green-400"
+                  : "hover:text-green-400"
+              }
+            >
               Share a Garden Tip
             </NavLink>
           </li>
           <li className="flex items-center">
-            <NavLink to="/my-tips" className="hover:text-green-500">
+            <NavLink
+              to="/my-tips"
+              className={({ isActive }) =>
+                isActive
+                  ? "rounded-none font-bold text-green-400"
+                  : "hover:text-green-400"
+              }
+            >
               My Tips
             </NavLink>
           </li>
