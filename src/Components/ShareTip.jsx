@@ -121,6 +121,8 @@ const ShareTip = () => {
             <option>Vertical Gardening</option>
             <option>Indoor Gardening</option>
             <option>Soil Preparation</option>
+            <option>Seasonal Tips</option>
+            <option>General</option>
           </select>
         </div>
 
