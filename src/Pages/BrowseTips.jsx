@@ -4,15 +4,50 @@ import { FaEye } from "react-icons/fa";
 
 const BrowseTips = () => {
   const [tips, setTips] = useState([]);
+  const [filteredTips, setFilteredTips] = useState([]);
+  const [selectedDifficulty, setSelectedDifficulty] = useState("All");
 
   useEffect(() => {
     fetch("http://localhost:3000/public-tips")
       .then((res) => res.json())
-      .then((data) => setTips(data));
+      .then((data) => {
+        setTips(data);
+        setFilteredTips(data);
+      });
   }, []);
+
+  useEffect(() => {
+    if (selectedDifficulty === "All") {
+      setFilteredTips(tips);
+    } else {
+      const filtered = tips.filter(
+        (tip) =>
+          tip.difficulty.toLowerCase() === selectedDifficulty.toLowerCase()
+      );
+      setFilteredTips(filtered);
+    }
+  }, [selectedDifficulty, tips]);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-20 font-lora">
+      <div className="flex flex-col md:flex-row items-center justify-between mb-6 gap-6">
+        <h2 className="text-2xl font-merriweather text-success font-bold">
+          Community Garden Tips
+        </h2>
+        <div>
+          <label className="mr-2 font-semibold">Filter by Difficulty:</label>
+          <select
+            value={selectedDifficulty}
+            onChange={(e) => setSelectedDifficulty(e.target.value)}
+            className="select select-success max-w-xs"
+          >
+            <option value="All">All</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </div>
+      </div>
       <div className="overflow-x-auto bg-base-100 shadow-md rounded-lg">
         <table className="table w-full">
           <thead className="bg-success  text-white text-lg">
@@ -26,7 +61,7 @@ const BrowseTips = () => {
             </tr>
           </thead>
           <tbody>
-            {tips.map((tip, index) => (
+            {filteredTips.map((tip, index) => (
               <tr key={tip._id} className="hover">
                 <td>{index + 1}</td>
                 <td>
