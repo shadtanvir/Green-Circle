@@ -50,7 +50,7 @@ const ShareTip = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto my-20 p-6 bg-base-100 shadow-lg rounded-md">
+    <div className="max-w-7xl mx-auto my-20 p-6 bg-info shadow-lg rounded-md">
       <h2 className="text-2xl font-merriweather font-bold text-success mb-6">
         Share a Garden Tip
       </h2>
@@ -144,7 +144,7 @@ const ShareTip = () => {
             type="text"
             value={user.displayName}
             readOnly
-            className="input input-bordered w-full bg-gray-100"
+            className="input text-gray-800 input-bordered w-full bg-gray-100"
           />
         </div>
 
@@ -154,7 +154,7 @@ const ShareTip = () => {
             type="email"
             value={user.email}
             readOnly
-            className="input input-bordered w-full bg-gray-100"
+            className="input text-gray-800 input-bordered w-full bg-gray-100"
           />
         </div>
 

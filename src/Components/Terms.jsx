@@ -6,7 +6,7 @@ const Terms = () => {
       <h1 className="text-3xl text-center md:text-4xl font-merriweather font-bold text-success mb-4">
         Terms of Service
       </h1>
-      <p className="text-[#3F2200] text-center text-lg mb-6">
+      <p className="text-shadow-gray-700 text-center text-lg mb-6">
         By using Green Circle, you agree to follow our community standards and
         use this platform responsibly.
       </p>
@@ -25,7 +25,7 @@ const Terms = () => {
           We reserve the right to modify terms as needed with prior notice.
         </li>
       </ul>
-      <p className="text-center mt-10 text-[#3F2200] text-lg">
+      <p className="text-center mt-10 text-shadow-gray-700 text-lg">
         Continued use of our platform indicates your agreement with these terms.
       </p>
     </div>

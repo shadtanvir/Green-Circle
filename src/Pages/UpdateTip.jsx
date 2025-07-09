@@ -53,16 +53,18 @@ const UpdateTip = () => {
     );
 
   return (
-    <div className="max-w-2xl mx-auto p-6 my-15 bg-white shadow-md rounded-lg mt-10">
-      <h2 className="text-2xl font-bold text-green-700 mb-6 text-center font-merri">
+    <div className="max-w-2xl mx-auto p-6 my-15 bg-info shadow-md rounded-lg mt-10">
+      <h2 className="text-2xl font-bold text-green-700 mb-6 text-center font-merriWeather">
         Update Garden Tip
       </h2>
 
       <form onSubmit={handleUpdate} className="space-y-4">
         {/* Title & Plant Type */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1  md:grid-cols-2 gap-4">
           <div>
-            <label className="label">Title</label>
+            <label className="label text-shadow-gray-700 text-shadow-gray-700 ">
+              Title
+            </label>
             <input
               type="text"
               name="title"
@@ -73,7 +75,9 @@ const UpdateTip = () => {
             />
           </div>
           <div>
-            <label className="label">Plant Type / Topic</label>
+            <label className="label text-shadow-gray-700">
+              Plant Type / Topic
+            </label>
             <input
               type="text"
               name="plantType"
@@ -88,7 +92,9 @@ const UpdateTip = () => {
         {/* Difficulty & Image URL */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="label">Difficulty Level</label>
+            <label className="label text-shadow-gray-700">
+              Difficulty Level
+            </label>
             <select
               name="difficulty"
               defaultValue={tip.difficulty}
@@ -104,7 +110,7 @@ const UpdateTip = () => {
             </select>
           </div>
           <div>
-            <label className="label">Image URL</label>
+            <label className="label text-shadow-gray-700">Image URL</label>
             <input
               type="text"
               name="image"
@@ -119,7 +125,7 @@ const UpdateTip = () => {
         {/* Category & Status */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="label">Category</label>
+            <label className="label text-shadow-gray-700">Category</label>
             <select
               name="category"
               defaultValue={tip.category}
@@ -140,7 +146,7 @@ const UpdateTip = () => {
           </div>
 
           <div>
-            <label className="label">Availability</label>
+            <label className="label text-shadow-gray-700">Availability</label>
             <select
               name="availability"
               defaultValue={tip.availability}
@@ -158,7 +164,7 @@ const UpdateTip = () => {
 
         {/* Description */}
         <div>
-          <label className="label">Description</label>
+          <label className="label text-shadow-gray-700">Description</label>
           <textarea
             name="description"
             defaultValue={tip.description}

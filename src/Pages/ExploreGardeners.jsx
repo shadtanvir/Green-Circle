@@ -32,7 +32,7 @@ const ExploreGardeners = () => {
         <h2 className="text-2xl md:text-4xl font-merriweather font-bold text-success">
           Explore Gardeners of Our Community
         </h2>
-        <p className="text-[#3F2200] font-lora mt-2">
+        <p className="text-shadow-gray-700 font-lora mt-2">
           Welcome to our green circle!
         </p>
       </motion.div>
@@ -46,7 +46,7 @@ const ExploreGardeners = () => {
             whileInView="visible"
             viewport={{ once: false }}
             variants={cardVariants}
-            className="bg-white shadow-xl rounded-2xl  hover:shadow-2xl transition"
+            className="bg-info shadow-xl rounded-2xl  hover:shadow-2xl transition"
           >
             <img
               src={gardener.photoURL}
@@ -58,15 +58,15 @@ const ExploreGardeners = () => {
                 {gardener.name}
               </h3>
               {gardener.totalSharedTips ? (
-                <p className="text-sm flex items-center gap-1 font-merriWeather italic text-gray-600 mt-1 ">
+                <p className="text-sm text-neutral flex items-center gap-1 font-merriWeather italic  mt-1 ">
                   Shared tips: {gardener.totalSharedTips}
                 </p>
               ) : (
-                <p className="text-sm flex items-center gap-1 text-gray-600 mt-1 italic font-merriWeather">
+                <p className="text-sm text-neutral flex  items-center gap-1  mt-1 italic font-merriWeather">
                   Shared tips: 0
                 </p>
               )}
-              <p className="text-sm text-gray-600 font-merriWeather mt-1">
+              <p className="text-sm text-neutral font-merriWeather mt-1">
                 {gardener.experience
                   ? gardener.experience
                   : "Experience not provided"}

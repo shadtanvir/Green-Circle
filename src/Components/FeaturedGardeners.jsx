@@ -13,7 +13,7 @@ const FeaturedGardeners = ({ activeGardeners }) => {
     }),
   };
   return (
-    <section className="py-12 max-w-7xl mx-auto bg-base-100">
+    <section className="py-12   max-w-7xl mx-auto  bg-base-100">
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ const FeaturedGardeners = ({ activeGardeners }) => {
         <h2 className="text-2xl md:text-4xl font-merriweather font-bold text-success">
           Featured Gardeners
         </h2>
-        <p className="text-[#3F2200] font-lora mt-2">
+        <p className="text-shadow-gray-700 font-lora mt-2">
           Meet the green heroes of our community!
         </p>
       </motion.div>
@@ -38,7 +38,7 @@ const FeaturedGardeners = ({ activeGardeners }) => {
             whileInView="visible"
             viewport={{ once: false }}
             variants={cardVariants}
-            className="bg-white shadow-xl rounded-2xl  hover:shadow-2xl transition"
+            className="bg-info shadow-xl rounded-2xl  hover:shadow-2xl transition"
           >
             <img
               src={gardener.photoURL}
@@ -49,7 +49,7 @@ const FeaturedGardeners = ({ activeGardeners }) => {
               <h3 className="text-xl font-semibold font-merriweather text-success">
                 {gardener.name}
               </h3>
-              <p className="text-sm text-gray-600 font-lora mt-1">
+              <p className="text-sm text-neutral font-lora mt-1">
                 {gardener.experience}
               </p>
               <p className="text-sm flex items-center gap-1 text-gray-400 mt-1 italic">

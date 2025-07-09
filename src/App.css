@@ -1,10 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import "tailwindcss";
+
 @theme {
   --font-merriWeather: "Merriweather", "sans-serif";
   --font-lora: "Lora", "sans-serif";
 }
 @plugin "daisyui" {
-  themes: light --default;
+  themes: light --default, dark;
+}
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-info: #ffffff;
+  --color-neutral: oklch(44.6% 0.03 256.802);
+  --color-primary: oklch(39.3% 0.095 152.535);
+  --color-secondary: oklch(98.2% 0.018 155.826);
+  --color-error: oklch(62.7% 0.194 149.214);
+  /*--color-accent: "#A7F3D0", // light green
+   --color-"base-100": "#ffffff",
+   --color-success: "#16A34A",
+   --color-warning: "#FACC15",
+   --color-error: "#DC2626", */
+}
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-info: oklch(21% 0.034 264.665);
+  --color-primary: #121212;
+  --color-secondary: #121212;
+  --color-neutral: oklch(87.2% 0.01 258.338);
+  --color-error: oklch(87.2% 0.01 258.338);
+  /* --color-accent: "#A7F3D0", // light green
+   --color-"base-100": "#ffffff",
+   --color-success: "#16A34A",
+   --color-warning: "#FACC15",
+    */
 }

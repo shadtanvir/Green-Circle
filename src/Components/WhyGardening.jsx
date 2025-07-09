@@ -33,10 +33,10 @@ const WhyGardening = () => {
               whileInView="visible"
               viewport={{ once: false }}
               variants={variants}
-              className="bg-white shadow-xl rounded-2xl  hover:shadow-2xl transition p-6"
+              className="bg-info shadow-xl rounded-2xl  hover:shadow-2xl transition p-6"
             >
               <Icon className="text-green-500 text-4xl mx-auto mb-4" />
-              <h3 className="font-bold text-lg mb-2">
+              <h3 className="font-bold text-success text-lg mb-2">
                 {
                   [
                     "Eco-Friendly Lifestyle",
@@ -45,7 +45,7 @@ const WhyGardening = () => {
                   ][i]
                 }
               </h3>
-              <p className="text-sm font-lora text-gray-600">
+              <p className="text-sm font-lora text-neutral">
                 {
                   [
                     "Gardening helps reduce carbon footprint and improves local biodiversity.",

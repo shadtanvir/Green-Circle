@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-green-50 text-green-900 font-lora pt-10 border-t border-green-200">
+    <footer className="bg-secondary text-error font-lora pt-10 border-t border-green-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10">
           {/* Contact Info */}
@@ -47,7 +47,7 @@ const Footer = () => {
             <h2 className="text-xl font-semibold font-merriweather mb-4">
               Connect With Us
             </h2>
-            <div className="flex gap-4 text-2xl text-green-700">
+            <div className="flex gap-4 text-2xl ">
               <a
                 href="https://www.facebook.com/tahmedshad/"
                 target="_blank"
@@ -75,7 +75,7 @@ const Footer = () => {
         </div>
 
         {/* Divider + Bottom Branding */}
-        <div className="border-t border-green-200 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-green-600 pb-6">
+        <div className="border-t border-green-200 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-error pb-6">
           <p>© 2025 Green Circle. All rights reserved.</p>
           <p className="flex items-center gap-1 mt-2 md:mt-0">
             Grow. Share. Connect.

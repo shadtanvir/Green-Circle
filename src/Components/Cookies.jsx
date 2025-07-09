@@ -6,7 +6,7 @@ const Cookies = () => {
       <h1 className="text-3xl text-center md:text-4xl font-merriweather font-bold text-success mb-4">
         Cookie Policy
       </h1>
-      <p className="text-[#3F2200] text-center text-lg mb-6">
+      <p className="text-shadow-gray-700 text-center text-lg mb-6">
         Green Circle uses cookies to personalize your experience and enhance
         performance.
       </p>
@@ -17,7 +17,7 @@ const Cookies = () => {
         <li>We do not use cookies to track you outside our platform.</li>
         <li>You can clear or disable cookies in your browser settings.</li>
       </ul>
-      <p className="text-center mt-10 text-[#3F2200] text-lg">
+      <p className="text-center mt-10 text-shadow-gray-700 text-lg">
         By continuing to use our site, you consent to our cookie policy.
       </p>
     </div>

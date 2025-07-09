@@ -48,7 +48,7 @@ const BrowseTips = () => {
           </select>
         </div>
       </div>
-      <div className="overflow-x-auto bg-base-100 shadow-md rounded-lg">
+      <div className="overflow-x-auto bg-info shadow-md rounded-lg">
         <table className="table w-full">
           <thead className="bg-success  text-white text-lg">
             <tr>

@@ -48,7 +48,7 @@ const MyTips = () => {
           <MdOutlineTipsAndUpdates className="text-4xl" />
           My Garden Tips
         </h2>
-        <p className="text-[#3F2200]">
+        <p className="text-shadow-gray-700 ">
           All your public and private tips are listed here.
         </p>
       </div>
@@ -68,7 +68,7 @@ const MyTips = () => {
             {tips.map((tip, index) => (
               <tr
                 key={tip._id}
-                className="hover:bg-green-50 transition duration-150"
+                className="hover:bg-green-50 bg-info transition duration-150"
               >
                 <td className="py-2 px-4 font-medium">{index + 1}</td>
                 <td className="py-2 px-4 flex items-center gap-2 font-semibold text-green-700">

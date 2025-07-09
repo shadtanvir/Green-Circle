@@ -27,7 +27,7 @@ const TrendingTips = () => {
           <h2 className="text-3xl font-bold font-merriweather text-success  text-center">
             Top Trending Tips
           </h2>
-          <p className="text-[#3F2200] font-lora mt-2">
+          <p className="text-shadow-gray-700 font-lora mt-2">
             Read the top trending tips of our community!
           </p>
         </motion.div>
@@ -40,7 +40,7 @@ const TrendingTips = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: false }}
-              className="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
+              className="bg-info rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
             >
               <img
                 src={tip.image}
@@ -48,10 +48,10 @@ const TrendingTips = () => {
                 className="w-full h-48 object-cover rounded-t-2xl"
               />
               <div className="p-4 space-y-2">
-                <h3 className="text-lg font-semibold font-merriweather text-gray-800">
+                <h3 className="text-lg font-semibold font-merriweather text-success">
                   {tip.title}
                 </h3>
-                <p className="text-sm font-lora text-gray-600">
+                <p className="text-sm font-lora text-neutral">
                   {tip.description.slice(0, 100)}...
                 </p>
                 <div className="flex flex-wrap gap-x-4 text-xs text-gray-500 font-lora mt-2">

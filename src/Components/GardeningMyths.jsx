@@ -42,15 +42,15 @@ const GardeningMyths = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: i * 0.2 }}
               viewport={{ once: false }}
-              className="bg-white rounded-xl p-6 shadow-xl text-center hover:shadow-2xl"
+              className="bg-info rounded-xl p-6 shadow-xl text-center hover:shadow-2xl"
             >
               <div className="flex justify-center items-center">
                 {myth.icon}
               </div>
-              <h3 className="font-bold text-lg mt-2 text-gray-800 font-merriweather">
+              <h3 className="font-bold text-lg mt-2 text-gray-800 text-success font-merriweather">
                 {myth.title}
               </h3>
-              <p className="text-gray-600 mt-2 text-sm font-lora">
+              <p className="text-neutral mt-2 text-sm font-lora">
                 {myth.fact}
               </p>
             </motion.div>
