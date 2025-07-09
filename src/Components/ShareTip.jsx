@@ -19,6 +19,7 @@ const ShareTip = () => {
       ...data,
       userEmail: user.email,
       userName: user.displayName,
+      totalLiked: 0,
       date: new Date(),
     };
 

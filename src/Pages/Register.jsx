@@ -20,11 +20,12 @@ const Register = () => {
           photoURL: user.photoURL,
           age: null,
           gender: null,
-          status: "Active", // default status for Google sign-in
+          status: "Active",
           experience: "",
           creationTime: user?.metadata?.creationTime,
           lastSignInTime: user?.metadata?.lastSignInTime,
           totalSharedTips: 0,
+          likedTips: [],
         };
 
         // check if user already exists in MongoDB
@@ -102,6 +103,7 @@ const Register = () => {
           creationTime: result.user?.metadata?.creationTime,
           lastSignInTime: result.user?.metadata?.lastSignInTime,
           totalSharedTips: 0,
+          likedTips: [],
         };
 
         // save profile info in the db

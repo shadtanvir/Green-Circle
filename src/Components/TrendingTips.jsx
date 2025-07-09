@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PiPlantDuotone } from "react-icons/pi";
 import { PiTargetBold } from "react-icons/pi";
 import { BiCategoryAlt } from "react-icons/bi";
-import { FaUser } from "react-icons/fa";
+import { FaHeart, FaUser } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const TrendingTips = () => {
@@ -64,6 +64,12 @@ const TrendingTips = () => {
                   <div className="flex items-center gap-1">
                     <BiCategoryAlt size={18} className="text-yellow-400" />{" "}
                     {tip.category}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <div className="text-red-600">
+                      <FaHeart size={20} />
+                    </div>
+                    <span>{tip.totalLiked || 0} </span>
                   </div>
                 </div>
                 <div className="text-xs flex gap-2 items-center  text-gray-400 font-lora pt-2 border-t mt-2">

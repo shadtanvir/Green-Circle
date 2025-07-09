@@ -1,22 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ErrorPage from "./ErrorPage";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Loading from "../Components/Loading";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const TipDetails = () => {
   const { id } = useParams();
+  const { user } = useContext(AuthContext);
   const [tip, setTip] = useState(null);
+  const [liked, setLiked] = useState(false);
+  const [likedTips, setLikedTips] = useState([]);
+  const navigate = useNavigate();
 
+  // Fetch Tip Info
   useEffect(() => {
     fetch(`http://localhost:3000/tips/${id}`)
       .then((res) => res.json())
-      .then((data) => setTip(data));
+      .then((data) => {
+        setTip(data);
+      });
   }, [id]);
+
+  // Fetch Gardener's likedTips
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://localhost:3000/gardeners/${user.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          const likedTipIds = data?.likedTips || [];
+          setLikedTips(likedTipIds);
+          if (likedTipIds.includes(id)) {
+            setLiked(true);
+          }
+        });
+    }
+  }, [user, id]);
+
+  const handleLike = () => {
+    if (!user || liked) return; // prevent if not logged in or already liked
+
+    fetch(`http://localhost:3000/tips/${id}/like`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userEmail: user.email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setTip((prev) => ({
+            ...prev,
+            totalLiked: (prev.totalLiked || 0) + 1,
+          }));
+          setLiked(true);
+          setLikedTips((prev) => [...prev, id]);
+        }
+      });
+  };
 
   if (!tip)
     return (
       <div className="text-center py-10">
-        <Loading></Loading>
+        <Loading />
       </div>
     );
 
@@ -37,6 +84,16 @@ const TipDetails = () => {
         <strong>Difficulty:</strong> {tip.difficulty}
       </p>
       <p className="mt-4 text-xl">{tip.description}</p>
+      <div className="flex items-center justify-center mt-4  gap-1">
+        <button onClick={handleLike}>
+          {liked ? (
+            <FaHeart className="text-red-600" size={23} />
+          ) : (
+            <FaRegHeart className="text-red-600" size={23} />
+          )}
+        </button>
+        <span className="text-xl">{tip.totalLiked || 0} </span>
+      </div>
       <p className="mt-4 text-sm text-gray-300">
         By: {tip.userName} ({tip.userEmail})
       </p>
