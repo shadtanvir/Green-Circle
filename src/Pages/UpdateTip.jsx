@@ -62,9 +62,7 @@ const UpdateTip = () => {
         {/* Title & Plant Type */}
         <div className="grid grid-cols-1  md:grid-cols-2 gap-4">
           <div>
-            <label className="label text-shadow-gray-700 text-shadow-gray-700 ">
-              Title
-            </label>
+            <label className="label  text-shadow-gray-700 ">Title</label>
             <input
               type="text"
               name="title"
@@ -176,7 +174,7 @@ const UpdateTip = () => {
         </div>
 
         {/* Read-Only User Info */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 TEXT-LG md:grid-cols-2 gap-4">
           <input
             type="text"
             readOnly

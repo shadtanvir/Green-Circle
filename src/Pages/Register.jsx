@@ -152,14 +152,14 @@ const Register = () => {
   };
   return (
     <div className="flex justify-center items-center min-h-screen font-lora">
-      <div className="card bg-green-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-        <h2 className="font-semibold font-merriWeather text-2xl text-green-800 text-center">
+      <div className="card bg-accent w-full max-w-sm shrink-0 shadow-2xl py-5">
+        <h2 className="font-semibold font-merriWeather text-2xl text-green-600 text-center">
           Register your account
         </h2>
         <form onSubmit={handleRegister} className="card-body">
           <fieldset className="fieldset">
             {/* Name */}
-            <label className="label">Name</label>
+            <label className="label text-shadow-gray-700">Name</label>
             <input
               name="name"
               type="text"
@@ -168,7 +168,7 @@ const Register = () => {
               required
             />
             {/* email */}
-            <label className="label">Email</label>
+            <label className="label text-shadow-gray-700">Email</label>
             <input
               name="email"
               type="email"
@@ -178,7 +178,7 @@ const Register = () => {
             />
 
             {/* Photo URL */}
-            <label className="label">Photo URL</label>
+            <label className="label text-shadow-gray-700">Photo URL</label>
             <input
               name="photoUrl"
               type="text"
@@ -188,7 +188,7 @@ const Register = () => {
             />
 
             {/* Age */}
-            <label className="label">Age</label>
+            <label className="label text-shadow-gray-700">Age</label>
             <input
               name="age"
               type="number"
@@ -198,7 +198,7 @@ const Register = () => {
             />
 
             {/* Gender */}
-            <label className="label">Gender</label>
+            <label className="label text-shadow-gray-700">Gender</label>
             <select name="gender" className="select select-bordered" required>
               <option value="" disabled selected>
                 Select gender
@@ -209,14 +209,14 @@ const Register = () => {
             </select>
 
             {/* Status */}
-            <label className="label">Status</label>
+            <label className="label text-shadow-gray-700">Status</label>
             <select name="status" className="select select-bordered" required>
               <option value="Active">Active</option>
               <option value="Inactive">Inactive</option>
             </select>
 
             {/* Experience */}
-            <label className="label">Experience</label>
+            <label className="label text-shadow-gray-700">Experience</label>
             <input
               name="experience"
               type="text"
@@ -226,7 +226,7 @@ const Register = () => {
             />
 
             {/* password */}
-            <label className="label">Password</label>
+            <label className="label text-shadow-gray-700">Password</label>
             <input
               name="password"
               type="password"
@@ -237,13 +237,13 @@ const Register = () => {
 
             <button
               type="submit"
-              className="btn bg-green-800 text-white font-merriWeather mt-4"
+              className="btn bg-primary text-white font-merriWeather mt-4"
             >
               Register
             </button>
             <p className="font-semibold text-center pt-5">
               Already have an account?{" "}
-              <Link className="text-green-900" to="/auth/login">
+              <Link className="text-green-600" to="/auth/login">
                 Login
               </Link>{" "}
             </p>

@@ -104,14 +104,14 @@ const Login = () => {
 
   return (
     <div className="flex  justify-center items-center min-h-screen font-lora">
-      <div className="card bg-green-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-        <h2 className="font-semibold text-2xl text-green-800  text-center font-merriWeather">
+      <div className="card bg-accent w-full max-w-sm shrink-0 shadow-2xl py-5">
+        <h2 className="font-semibold text-2xl text-green-600  text-center font-merriWeather">
           Login your account
         </h2>
         <form onSubmit={handleLogin} className="card-body">
           <fieldset className="fieldset">
             {/* Email */}
-            <label className="label">Email</label>
+            <label className="label text-shadow-gray-700">Email</label>
             <input
               ref={emailRef}
               type="email"
@@ -122,7 +122,7 @@ const Login = () => {
               required
             />
             {/* password */}
-            <label className="label">Password</label>
+            <label className="label text-shadow-gray-800">Password</label>
             <input
               type="password"
               name="password"
@@ -133,14 +133,14 @@ const Login = () => {
 
             <button
               type="submit"
-              className="btn bg-green-800 text-white font-merriWeather mt-4"
+              className="btn bg-primary text-white font-merriWeather mt-4"
             >
               Login
             </button>
-            <p className="font-semibold text-center pt-5">
+            <p className="font-semibold  text-center pt-5">
               Don't have an account?{" "}
               <Link
-                className="text-green-900"
+                className="text-green-600"
                 to="/auth/register"
                 state={{ from: location.state?.from || "/" }}
               >

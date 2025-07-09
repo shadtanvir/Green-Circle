@@ -66,15 +66,12 @@ const MyTips = () => {
           </thead>
           <tbody>
             {tips.map((tip, index) => (
-              <tr
-                key={tip._id}
-                className="hover:bg-green-50 bg-info transition duration-150"
-              >
+              <tr key={tip._id} className=" bg-info transition duration-150">
                 <td className="py-2 px-4 font-medium">{index + 1}</td>
                 <td className="py-2 px-4 flex items-center gap-2 font-semibold text-green-700">
                   {tip.title}
                 </td>
-                <td className="py-2 px-4 italic text-gray-600">
+                <td className="py-2 px-4 italic text-neutral">
                   {tip.category}
                 </td>
                 <td className="py-2 px-4">

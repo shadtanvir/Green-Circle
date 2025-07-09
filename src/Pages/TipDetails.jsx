@@ -37,7 +37,7 @@ const TipDetails = () => {
         <strong>Difficulty:</strong> {tip.difficulty}
       </p>
       <p className="mt-4 text-xl">{tip.description}</p>
-      <p className="mt-4 text-sm text-gray-500">
+      <p className="mt-4 text-sm text-gray-300">
         By: {tip.userName} ({tip.userEmail})
       </p>
     </div>
