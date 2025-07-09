@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Typewriter } from "react-simple-typewriter";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -40,7 +41,7 @@ const Banner = () => {
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 6000 }}
         loop={true}
         className="h-[700px]"
       >
@@ -52,7 +53,15 @@ const Banner = () => {
             >
               <div className=" text-center max-w-xl flex flex-col gap-2 px-4">
                 <h2 className="text-xl md:text-4xl font-merriweather text-white bg-green-400 font-bold p-2 md:p-6 ">
-                  {slide.title}
+                  <Typewriter
+                    words={[slide.title]}
+                    loop={false}
+                    cursor
+                    cursorStyle={<span style={{ color: "#3F2200" }}>|</span>}
+                    typeSpeed={100}
+                    deleteSpeed={80}
+                    delaySpeed={500}
+                  />
                 </h2>
                 <p className=" p-2 text-lg md:p-5 md:text-xl font-lora text-[#3F2200] bg-gray-200">
                   {slide.description}
