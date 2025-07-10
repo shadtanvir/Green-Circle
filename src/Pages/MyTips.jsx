@@ -12,7 +12,7 @@ const MyTips = () => {
 
   useEffect(() => {
     if (!loading && user?.email) {
-      fetch(`http://localhost:3000/tips?email=${user.email}`)
+      fetch(`https://green-circle-server-mocha.vercel.app/tips?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setTips(data));
     }
@@ -27,7 +27,7 @@ const MyTips = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/tips/${id}`, {
+        fetch(`https://green-circle-server-mocha.vercel.app/tips/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

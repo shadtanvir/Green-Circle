@@ -9,7 +9,7 @@ const TrendingTips = () => {
   const [tips, setTips] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/trendingTips")
+    fetch("https://green-circle-server-mocha.vercel.app/trendingTips")
       .then((res) => res.json())
       .then((data) => setTips(data));
   }, []);

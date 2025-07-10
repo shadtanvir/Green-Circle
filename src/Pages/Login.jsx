@@ -20,7 +20,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        fetch(`http://localhost:3000/gardeners?email=${user.email}`)
+        fetch(`https://green-circle-server-mocha.vercel.app/gardeners?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => {
             if (!data.exists) {
@@ -67,7 +67,7 @@ const Login = () => {
           lastSignInTime: result.user?.metadata?.lastSignInTime,
         };
         // update last sign in to the database
-        fetch("http://localhost:3000/gardeners", {
+        fetch("https://green-circle-server-mocha.vercel.app/gardeners", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

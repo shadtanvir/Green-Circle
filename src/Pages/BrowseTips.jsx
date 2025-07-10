@@ -8,7 +8,7 @@ const BrowseTips = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
 
   useEffect(() => {
-    fetch("http://localhost:3000/public-tips")
+    fetch("https://green-circle-server-mocha.vercel.app/public-tips")
       .then((res) => res.json())
       .then((data) => {
         setTips(data);

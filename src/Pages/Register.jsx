@@ -13,7 +13,7 @@ const Register = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         const userProfile = {
           email: user.email,
           name: user.displayName,
@@ -29,7 +29,7 @@ const Register = () => {
         };
 
         // check if user already exists in MongoDB
-        fetch(`http://localhost:3000/gardeners?email=${user.email}`)
+        fetch(`https://green-circle-server-mocha.vercel.app/gardeners?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => {
             if (data.exists) {
@@ -40,7 +40,7 @@ const Register = () => {
               });
             } else {
               // save new gardener to MongoDB
-              fetch("http://localhost:3000/gardeners", {
+              fetch("https://green-circle-server-mocha.vercel.app/gardeners", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",
@@ -107,7 +107,7 @@ const Register = () => {
         };
 
         // save profile info in the db
-        fetch("http://localhost:3000/gardeners", {
+        fetch("https://green-circle-server-mocha.vercel.app/gardeners", {
           method: "POST",
           headers: {
             "content-type": "application/json",

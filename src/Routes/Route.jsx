@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/active-gardeners"),
+        loader: () => fetch("https://green-circle-server-mocha.vercel.app/active-gardeners"),
         element: <Home></Home>,
       },
       {

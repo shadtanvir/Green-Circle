@@ -23,7 +23,7 @@ const ShareTip = () => {
       date: new Date(),
     };
 
-    fetch("http://localhost:3000/tips", {
+    fetch("https://green-circle-server-mocha.vercel.app/tips", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

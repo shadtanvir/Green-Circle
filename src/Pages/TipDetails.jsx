@@ -15,7 +15,7 @@ const TipDetails = () => {
 
   // Fetch Tip Info
   useEffect(() => {
-    fetch(`http://localhost:3000/tips/${id}`)
+    fetch(`https://green-circle-server-mocha.vercel.app/tips/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setTip(data);
@@ -25,7 +25,9 @@ const TipDetails = () => {
   // Fetch Gardener's likedTips
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/gardeners/${user.email}`)
+      fetch(
+        `https://green-circle-server-mocha.vercel.app/gardeners/${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           const likedTipIds = data?.likedTips || [];
@@ -40,7 +42,7 @@ const TipDetails = () => {
   const handleLike = () => {
     if (!user || liked) return; // prevent if not logged in or already liked
 
-    fetch(`http://localhost:3000/tips/${id}/like`, {
+    fetch(`https://green-circle-server-mocha.vercel.app/tips/${id}/like`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

@@ -11,7 +11,7 @@ const UpdateTip = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/tips/${id}`)
+    fetch(`https://green-circle-server-mocha.vercel.app/tips/${id}`)
       .then((res) => res.json())
       .then((data) => setTip(data));
   }, [id]);
@@ -30,14 +30,14 @@ const UpdateTip = () => {
       availability: form.availability.value,
     };
 
-    fetch(`http://localhost:3000/tips/${id}`, {
+    fetch(`https://green-circle-server-mocha.vercel.app/tips/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTip),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("PUT response:", data);
+        // console.log("PUT response:", data);
         if (data.modifiedCount > 0) {
           Swal.fire("Success!", "Tip updated successfully.", "success");
           navigate("/my-tips");

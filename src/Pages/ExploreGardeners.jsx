@@ -15,7 +15,7 @@ const ExploreGardeners = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/gardeners")
+    fetch("https://green-circle-server-mocha.vercel.app/gardeners")
       .then((res) => res.json())
       .then((data) => setGardeners(data));
   }, []);
