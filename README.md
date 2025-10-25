@@ -46,14 +46,14 @@ The project integrates **modern UI**, **authentication**, and **real-time intera
 
 ### Clone the Repository
 
-```PowerShell`````
+`PowerShell`
 
 - git clone https://github.com/shadtanvir/Green-Circle
 - cd Green-Circle
 
 ### Install Dependencies
 
-```PowerShell````
+`PowerShell`
 npm install
 
 ### Create .env File
@@ -67,7 +67,8 @@ npm install
 
 ### Run the Project
 
-```PowerShell````
+`PowerShell`
+
 - npm run dev
 
 ---
