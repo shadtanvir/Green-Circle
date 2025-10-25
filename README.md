@@ -1,6 +1,6 @@
 # Green Circle - Gardening Community
 
-![GreenCircle Banner](https://ibb.co/QjjsPBFR)  
+![GreenCircle Banner](https://i.postimg.cc/YqqK8gTg/green-Circle1.png)  
 _A community platform built for plant lovers, gardeners, and eco-enthusiasts to connect, share, and grow together._
 
 ---
@@ -93,6 +93,6 @@ _A community platform built for plant lovers, gardeners, and eco-enthusiasts to 
 
 - 👤 **Tanvir Ahmed Shad**
 - 💼 **MERN Stack Developer** | **Tech Enthusiast**
-- 📧 tahmedshad127@gmail.com
+- 📧 [tahmedshad127@gmail.com](mailto:tahmedshad127@gmail.com)
 - 🌐 [Portfolio Website](https://github.com/shadtanvir/)
 - 🔗 [LinkedIn](https://github.com/shadtanvir/)
