@@ -44,18 +44,19 @@ The project integrates **modern UI**, **authentication**, and **real-time intera
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 
-``````PowerShell
+```PowerShell```
 git clone https://github.com/shadtanvir/Green-Circle
 cd Green-Circle
 
-### 2️⃣ Install Dependencies
+### Install Dependencies
 
-`````PowerShell
+```PowerShell```
 npm install
 
-### 3️⃣ Create .env File
+
+### Create .env File
 
   VITE_apiKey= Firebase_apiKey
   VITE_authDomain= Firebase_authDomain
@@ -64,10 +65,12 @@ npm install
   VITE_messagingSenderId= Firebase_messagingSenderId
   VITE_appId= Firebase_appId
 
-### 4️⃣ Run the Project
+### Run the Project
 
-`````PowerShell
+```PowerShell```
 npm run dev
+
+---
 
 ## 🧩 Challenges Faced
 
@@ -78,7 +81,7 @@ Implementing real-time like updates synced with MongoDB.
 Designing a UI that feels fresh, natural, and modern simultaneously.
 
 Handling protected routes and Firebase auth persistence on reload.
-
+---
 ## 🌱 Future Improvements
 
 Add location-based gardener discovery via Google Maps API.
@@ -88,10 +91,12 @@ Introduce community event creation and RSVP features.
 Create a mobile PWA version for offline use.
 
 Add AI-based gardening suggestions for users.
+---
 
 ## 📜 License
 
 This project is open source.
+---
 
 ##🧑‍💻 Author
 
@@ -100,4 +105,5 @@ This project is open source.
 📧 tahmedshad127@gmail.com
 🌐 [Portfolio Website](https://github.com/shadtanvir/)
 🔗 [LinkedIn](https://github.com/shadtanvir/)
+
 
