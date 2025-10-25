@@ -1,15 +1,13 @@
 # Green Circle - Gardening Community
 
-![GreenCircle Banner](https://images.herzindagi.info/image/2024/Jul/gardening-in-monsoon.jpg)  
+![GreenCircle Banner](https://ibb.co/QjjsPBFR)  
 _A community platform built for plant lovers, gardeners, and eco-enthusiasts to connect, share, and grow together._
 
 ---
 
 ## Overview
 
-**Green Circle** is a full-stack web application designed to connect gardening enthusiasts.  
-Users can share tips, explore community posts, discover active gardeners, and engage in nature-driven discussions.  
-The project integrates **modern UI**, **authentication**, and **real-time interactivity** to create a welcoming hub for all green lovers.
+**Green Circle** is a full-stack web application designed to connect gardening enthusiasts.mUsers can share tips, explore community posts, discover active gardeners, and engage in nature-driven discussions. The project integrates **modern UI**, **authentication**, and **real-time interactivity** to create a welcoming hub for all green lovers.
 
 ---
 
@@ -54,7 +52,7 @@ The project integrates **modern UI**, **authentication**, and **real-time intera
 ### Install Dependencies
 
 `PowerShell`
-npm install
+- npm install
 
 ### Create .env File
 
@@ -94,7 +92,7 @@ npm install
 ## Author
 
 - 👤 **Tanvir Ahmed Shad**
-- 💼 **MERN Stack Developer** | **Software Engineer** | **Tech Enthusiast**
+- 💼 **MERN Stack Developer** | **Tech Enthusiast**
 - 📧 tahmedshad127@gmail.com
 - 🌐 [Portfolio Website](https://github.com/shadtanvir/)
 - 🔗 [LinkedIn](https://github.com/shadtanvir/)
