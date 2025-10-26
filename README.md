@@ -44,30 +44,32 @@ _A community platform built for plant lovers, gardeners, and eco-enthusiasts to 
 
 ### Clone the Repository
 
-`PowerShell`
-
-- git clone https://github.com/shadtanvir/Green-Circle
-- cd Green-Circle
+```PowerShell
+git clone https://github.com/shadtanvir/Green-Circle
+cd Green-Circle
+```
 
 ### Install Dependencies
 
-`PowerShell`
-- npm install
+```PowerShell
+npm install
+```
 
 ### Create .env File
-
-- **VITE_apiKey**= Firebase_apiKey
-- **VITE_authDomain**= Firebase_authDomain
-- **VITE_projectId**= Firebase_projectId
-- **VITE_storageBucket**= Firebase_storageBucket
-- **VITE_messagingSenderId**= Firebase_messagingSenderId
-- **VITE_appId**= Firebase_appId
+```
+VITE_apiKey= Firebase_apiKey
+VITE_authDomain= Firebase_authDomain
+VITE_projectId= Firebase_projectId
+VITE_storageBucket= Firebase_storageBucket
+VITE_messagingSenderId= Firebase_messagingSenderId
+VITE_appId= Firebase_appId
+```
 
 ### Run the Project
 
-`PowerShell`
-
-- npm run dev
+```PowerShell
+npm run dev
+```
 
 ---
 
